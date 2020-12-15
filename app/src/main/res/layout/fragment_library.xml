@@ -4,16 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.wattpadclone.Library.LibraryFragment">
+    tools:context=".Library.LibraryFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_library"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="15dp"
-        app:titleTextColor="@color/black"
-        app:title="Thư viện"
-        app:titleMarginStart="15dp"/>
+        android:background="#ffffff">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_library"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            app:titleTextColor="@color/black"
+            app:title="Thư viện"
+            app:titleMarginStart="15dp"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"

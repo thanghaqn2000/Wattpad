@@ -9,9 +9,9 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.wattpadclone.Home.Adapters.Beans.HorizontalRecyclerViewHomeBean2;
 import com.example.wattpadclone.Chung.ActivityBookDetails;
+import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
 
 import java.util.ArrayList;

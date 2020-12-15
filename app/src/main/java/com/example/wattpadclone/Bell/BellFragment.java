@@ -1,23 +1,31 @@
 
 package com.example.wattpadclone.Bell;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import com.example.wattpadclone.Chung.Bean.BaseFragment;
+import com.example.wattpadclone.MainActivity;
 import com.example.wattpadclone.R;
+import com.example.wattpadclone.Search.SearchFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class BellFragment extends BaseFragment {

@@ -11,15 +11,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.MenuItem;
 
-import com.example.wattpadclone.Bell.BellFragment;
 import com.example.wattpadclone.Home.HomeFragment;
 import com.example.wattpadclone.Library.LibraryFragment;
 import com.example.wattpadclone.Search.SearchFragment;
-import com.example.wattpadclone.R;
+import com.example.wattpadclone.Bell.BellFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -147,44 +147,43 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-//        if(!isInternetAvailable()) {
-//            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-//            builder.setMessage("Please connect to the internet")
-//                    .setCancelable(false)
-//                    .setPositiveButton("Connect", new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int id) {
-//                            startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
-//                        }
-//                    })
-//                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            onStart();
-//                        }
-//                    });
-//            AlertDialog alert = builder.create();
-//            alert.show();
-//        }
+        if(!isInternetAvailable()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setMessage("Please connect to the internet")
+                    .setCancelable(false)
+                    .setPositiveButton("Connect", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            onStart();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
         if(firebaseUser != null) {
             bottomNavigationViewEx.setSelectedItemId(R.id.action_home);
         }
     }
 
 
-//    public boolean isInternetAvailable() {
-//        ConnectivityManager connectivityManager = (ConnectivityManager) MainActivity.this
-//                .getSystemService(Context.CONNECTIVITY_SERVICE);
-////        if ((connectivityManager
-////                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE) != null && connectivityManager
-////                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED)
-////                || (connectivityManager
-////                .getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null && connectivityManager
-////                .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
-////                .getState() == NetworkInfo.State.CONNECTED)) {
-////            return true;
-////        } else {
-////            return false;
-////        }
-//        return  false;
-//    }
+    public boolean isInternetAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) MainActivity.this
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        if ((connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE) != null && connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED)
+                || (connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null && connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
+                .getState() == NetworkInfo.State.CONNECTED)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

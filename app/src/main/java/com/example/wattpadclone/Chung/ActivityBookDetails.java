@@ -1,8 +1,11 @@
 package com.example.wattpadclone.Chung;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,9 +14,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.wattpadclone.Bell.Adapter.storyAdapter;
-import com.example.wattpadclone.Bell.Adapter.story;
 import com.example.wattpadclone.R;
+import com.example.wattpadclone.Bell.Adapter.story;
+import com.example.wattpadclone.Bell.Adapter.storyAdapter;
 
 import java.util.ArrayList;
 
@@ -39,12 +42,12 @@ public class ActivityBookDetails extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler);
         arrayList = new ArrayList<>();
-        arrayList.add(new story("Yêu Thương Và Friendzone",R.drawable.truyen2));
-        arrayList.add(new story("Nếu Như Yêu",R.drawable.tr3));
-        arrayList.add(new story("Buông Tay Ra Là Ăn Đấm Đấy",R.drawable.tr4));
-        arrayList.add(new story("Phượng Hoàng",R.drawable.tr5));
-        arrayList.add(new story("Con Rồng Cháu Tiên",R.drawable.tr6));
-        arrayList.add(new story("SaberTooth Là Nơi Tôi Thuộc Về",R.drawable.truyen1));
+        arrayList.add(new story("Yêu Thương Và Friendzone",R.mipmap.truyen2));
+        arrayList.add(new story("Nếu Như Yêu",R.mipmap.tr3));
+        arrayList.add(new story("Buông Tay Ra Là Ăn Đấm Đấy",R.mipmap.tr4));
+        arrayList.add(new story("Phượng Hoàng",R.mipmap.tr5));
+        arrayList.add(new story("Con Rồng Cháu Tiên",R.mipmap.tr6));
+        arrayList.add(new story("SaberTooth Là Nơi Tôi Thuộc Về",R.mipmap.truyen1));
         adapter = new storyAdapter(this,arrayList);
         recyclerView.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
